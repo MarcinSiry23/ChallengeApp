@@ -6,8 +6,8 @@
         public void TestReferenceType()
         {
             // arrange
-            var employee1 = GetEmployee("Marcin", "Nowak", 32);
-            var employee2 = GetEmployee("Marcin", "Kowalski", 27);
+            var employee1 = GetEmployee("Marcin", "Nowak");
+            var employee2 = GetEmployee("Marcin", "Kowalski");
 
             // act
 
@@ -20,8 +20,8 @@
         public void TestString()
         {
             // arrange
-            var employee1 = GetEmployee("Marcin", "Nowak", 32);
-            var employee2 = GetEmployee("Marcin", "Kowalski", 27);
+            var employee1 = GetEmployee("Marcin", "Nowak");
+            var employee2 = GetEmployee("Marcin", "Kowalski");
 
             // act
 
@@ -58,9 +58,9 @@
 
         }
 
-        private Employee GetEmployee(string name, string surname, int age)
+        private Employee GetEmployee(string name, string surname)
         {
-            return new Employee(name, surname, age);
+            return new Employee(name, surname);
         }
     }
 }

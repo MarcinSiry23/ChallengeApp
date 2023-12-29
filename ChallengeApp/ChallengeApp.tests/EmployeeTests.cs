@@ -5,34 +5,39 @@ namespace ChallengeApp.tests
     public class EmployeeTests
     {
         [Test]
-        public void WhenAddTwoScoresReturnCorrectResult()
+        public void WhenEmployeeGetGradesReturnCorrectStatistic()
         {
             // arrange
-            var employee = new Employee("Marcin", "Nowak", 27);
-            employee.AddScore(7);
-            employee.AddScore(3);
+            var employee = new Employee("Marcin", "Nowak");
+            employee.AddGrade(2);
+            employee.AddGrade(2);
+            employee.AddGrade(6);
 
             // act
-            var result = employee.Result;
-            
+            var statistics = employee.GetStatistics();
+
             // assert
-            Assert.AreEqual(10, result);
+            Assert.AreEqual(6, statistics.Max);
+            Assert.AreEqual(2, statistics.Min);
+            Assert.AreEqual(3.33333325f, statistics.Average);
         }
 
         [Test]
-        public void WhenEmployeeGetNegativeScoreReturnCorrectResult()
+        public void WhenEmployeeGetNegativeGradesReturnCorrectStatistic()
         {
             // arrange
-            var employee = new Employee("Marcin", "Nowak", 27);
-            employee.AddScore(7);
-            employee.AddScore(3);
-            employee.AddScore(-10);
+            var employee = new Employee("Marcin", "Nowak");
+            employee.AddGrade(6);
+            employee.AddGrade(2);
+            employee.AddGrade(-2);
 
             // act
-            var result = employee.Result;
+            var statistics = employee.GetStatistics();
 
             // assert
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(6, statistics.Max);
+            Assert.AreEqual(-2, statistics.Min);
+            Assert.AreEqual(3na, statistics.Average);
         }
 
     }
