@@ -19,7 +19,7 @@ namespace ChallengeApp.tests
             // assert
             Assert.AreEqual(6, statistics.Max);
             Assert.AreEqual(2, statistics.Min);
-            Assert.AreEqual(3.33333325f, statistics.Average);
+            Assert.AreEqual(Math.Round(3.33, 2), Math.Round(statistics.Average,2));
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace ChallengeApp.tests
             // assert
             Assert.AreEqual(6, statistics.Max);
             Assert.AreEqual(-2, statistics.Min);
-            Assert.AreEqual(3na, statistics.Average);
+            Assert.AreEqual(2, statistics.Average);
         }
 
     }

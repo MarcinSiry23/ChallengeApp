@@ -20,7 +20,50 @@
         //method
         public void AddGrade(float grade)
         {
-            this.grades.Add(grade);
+            if (grade >= 0 && grade <=100)
+            {
+                this.grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine($"\"{grade}\" is invalid grade value");
+            }
+        }
+
+        public void AddGrade(string grade)
+        {
+            if(float.TryParse(grade, out float result))
+            {
+                this.AddGrade(result);
+            }
+            else 
+            { 
+                Console.WriteLine($"String value \"{grade}\" is not correct"); 
+            }
+        }
+
+        public void AddGrade(double grade)
+        {
+            float castDoubleToFloat = (float)grade;
+            this.AddGrade(castDoubleToFloat);
+        }
+
+        public void AddGrade(long grade)
+        {
+            float castDoubleToFloat = (float)grade;
+            this.AddGrade(castDoubleToFloat);
+        }
+
+        public void AddGrade(char grade)
+        {
+            if (float.TryParse(grade.ToString(), out float result))
+            {
+                this.AddGrade(result);
+            }
+            else
+            {
+                Console.WriteLine($"Char value \"{grade}\" is not correct");
+            }
         }
 
         public Statistics GetStatistics()
