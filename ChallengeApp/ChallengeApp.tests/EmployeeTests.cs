@@ -9,35 +9,21 @@ namespace ChallengeApp.tests
         {
             // arrange
             var employee = new Employee("Marcin", "Nowak");
-            employee.AddGrade(2);
-            employee.AddGrade(2);
-            employee.AddGrade(6);
+            employee.AddGrade('b');
+            employee.AddGrade('B');
+            employee.AddGrade("10");
+            employee.AddGrade("asdas");
+            employee.AddGrade(20);
+
 
             // act
             var statistics = employee.GetStatistics();
 
             // assert
-            Assert.AreEqual(6, statistics.Max);
-            Assert.AreEqual(2, statistics.Min);
-            Assert.AreEqual(Math.Round(3.33, 2), Math.Round(statistics.Average,2));
-        }
-
-        [Test]
-        public void WhenEmployeeGetNegativeGradesReturnCorrectStatistic()
-        {
-            // arrange
-            var employee = new Employee("Marcin", "Nowak");
-            employee.AddGrade(6);
-            employee.AddGrade(2);
-            employee.AddGrade(-2);
-
-            // act
-            var statistics = employee.GetStatistics();
-
-            // assert
-            Assert.AreEqual(6, statistics.Max);
-            Assert.AreEqual(-2, statistics.Min);
-            Assert.AreEqual(2, statistics.Average);
+            Assert.AreEqual(80, statistics.Max);
+            Assert.AreEqual(10, statistics.Min);
+            Assert.AreEqual(47.5, statistics.Average);
+            Assert.AreEqual('C', statistics.AverageLetter);
         }
 
     }
