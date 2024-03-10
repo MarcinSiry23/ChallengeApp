@@ -1,14 +1,17 @@
-﻿namespace ChallengeApp
+﻿using System.Diagnostics;
+
+namespace ChallengeApp
 {
     public class Employee
     {
         //list
         private List<float> grades = new List<float>();
 
-        //constructor
         public Employee()
         {
         }
+
+        //constructor
         public Employee(string name, string surname)
         {
             this.Name = name;
@@ -29,7 +32,7 @@
             }
             else
             {
-                Console.WriteLine($"\"{grade}\" is invalid grade");
+                throw new Exception($"\"{grade}\" is invalid grade value.");
             }
         }
 
@@ -41,14 +44,14 @@
             }
             else if (grade.Length == 1)
             {
-                AddGrade((char) grade[0]);
+                AddGrade((char)grade[0]);
             }
             else
             {
-                Console.WriteLine($"String value \"{grade}\" is not correct");
+                throw new Exception($"String value \"{grade}\" is not correct.");
             }
         }
-
+        
         public void AddGrade(double grade)
         {
             float castDoubleToFloat = (float)grade;
@@ -84,8 +87,7 @@
                     this.grades.Add(0);
                     break;
                 default:
-                    Console.WriteLine("Wrong letter");
-                    break;
+                    throw new Exception("Wrong letter.");
             }
         }
 

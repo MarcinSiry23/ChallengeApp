@@ -13,7 +13,16 @@ while (true)
     {
         break;
     }
-    employee.AddGrade(input);
+
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception exception)
+    {
+        Console.WriteLine($"Exception catched: {exception.Message}");
+    }
+
     Console.WriteLine("Press \"enter\" to get statistic");
     Console.WriteLine("--------------------------------");
 }
