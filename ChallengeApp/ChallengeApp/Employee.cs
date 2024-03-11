@@ -7,11 +7,10 @@ namespace ChallengeApp
         //list
         private List<float> grades = new List<float>();
 
+        //constructor
         public Employee()
         {
         }
-
-        //constructor
         public Employee(string name, string surname)
         {
             this.Name = name;
@@ -69,22 +68,22 @@ namespace ChallengeApp
             switch (char.ToUpper(grade))
             {
                 case 'A':
-                    this.grades.Add(100);
+                    AddGrade(100);
                     break;
                 case 'B':
-                    this.grades.Add(80);
+                    AddGrade(80);
                     break;
                 case 'C':
-                    this.grades.Add(60);
+                    AddGrade(60);
                     break;
                 case 'D':
-                    this.grades.Add(40);
+                    AddGrade(40);
                     break;
                 case 'E':
-                    this.grades.Add(20);
+                    AddGrade(20);
                     break;
                 case 'F':
-                    this.grades.Add(0);
+                    AddGrade(0);
                     break;
                 default:
                     throw new Exception("Wrong letter.");
