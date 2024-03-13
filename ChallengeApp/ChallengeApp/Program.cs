@@ -3,7 +3,7 @@
 Console.WriteLine("Welcome to the Grade Employee App");
 Console.WriteLine("=======================================");
 
-var employee = new Employee();
+var employee = new Employee(1, "Marcin", "Siry", 'M');
 
 while (true)
 {
@@ -29,6 +29,7 @@ while (true)
 
 var statistic = employee.GetStatistics();
 
+Console.WriteLine($"\nEmployee({employee.IdNumber}): {employee.Name} {employee.Surname} ({employee.Sex})");
 Console.WriteLine($"\nAverage grades: {statistic.Average:N2}");
 Console.WriteLine($"Minimum grade: {statistic.Min:N2}");
 Console.WriteLine($"Maximal grade: {statistic.Max:N2}");

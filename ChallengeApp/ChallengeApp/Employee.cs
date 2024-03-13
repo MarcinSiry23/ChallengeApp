@@ -1,26 +1,19 @@
-﻿using System.Diagnostics;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
-    public class Employee
+    public class Employee : Person
     {
         //list
         private List<float> grades = new List<float>();
 
         //constructor
-        public Employee()
+        public Employee(int idnumber, string name, string surname, char sex)
+            : base(name, surname, sex)
         {
-        }
-        public Employee(string name, string surname)
-        {
-            this.Name = name;
-            this.Surname = surname;
+            this.IdNumber = idnumber;
         }
 
         //property
-        public string Name { get; private set; }
-
-        public string Surname { get; private set; }
+        public int IdNumber { get; private set; }
 
         //method
         public void AddGrade(float grade)
@@ -50,7 +43,7 @@ namespace ChallengeApp
                 throw new Exception($"String value \"{grade}\" is not correct.");
             }
         }
-        
+
         public void AddGrade(double grade)
         {
             float castDoubleToFloat = (float)grade;
