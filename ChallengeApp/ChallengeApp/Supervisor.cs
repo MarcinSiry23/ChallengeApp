@@ -1,12 +1,12 @@
 ﻿namespace ChallengeApp
 {
-    public class Employee : IEmployee
+    public class Supervisor : IEmployee
     {
         //list
         private List<float> grades = new List<float>();
 
         //constructor
-        public Employee( string name, string surname )
+        public Supervisor(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;
@@ -31,18 +31,66 @@
 
         public void AddGrade(string grade)
         {
-            if (float.TryParse(grade, out float result))
+            switch (grade)
             {
-                this.AddGrade(result);
+                case "6":
+                    AddGrade(100);
+                    break;
+                case "-6":
+                case "6-":
+                    AddGrade(95);
+                    break;
+                case "+5":
+                case "5+":
+                    AddGrade(85);
+                    break;
+                case "5":
+                    AddGrade(80);
+                    break;
+                case "-5":
+                case "5-":
+                    AddGrade(75);
+                    break;
+                case "+4":
+                case "4+":
+                    AddGrade(65);
+                    break;
+                case "4":
+                    AddGrade(60);
+                    break;
+                case "-4":
+                case "4-":
+                    AddGrade(55);
+                    break;
+                case "+3":
+                case "3+":
+                    AddGrade(45);
+                    break;
+                case "3":
+                    AddGrade(40);
+                    break;
+                case "-3":
+                case "3-":
+                    AddGrade(35);
+                    break;
+                case "+2":
+                case "2+":
+                    AddGrade(25);
+                    break;
+                case "2":
+                    AddGrade(20);
+                    break;
+                case "-2":
+                case "2-":
+                    AddGrade(15);
+                    break;
+                case "1":
+                    AddGrade(0);
+                    break;
+                default:
+                    throw new Exception($"String value \"{grade}\" is not correct.");
             }
-            else if (grade.Length == 1)
-            {
-                AddGrade((char)grade[0]);
-            }
-            else
-            {
-                throw new Exception($"String value \"{grade}\" is not correct.");
-            }
+
         }
 
         public void AddGrade(double grade)
@@ -121,6 +169,5 @@
 
             return statistics;
         }
-
     }
 }
