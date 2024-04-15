@@ -3,7 +3,13 @@
 Console.WriteLine("Welcome to the Grade Employee App");
 Console.WriteLine("=======================================");
 
-var employee = new EmployeeInFile("Marcin", "Siry");
+var employee = new EmployeeInMemory("Marcin", "Siry");
+employee.GradeAdded += EmployeeGradeAdded;
+
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("New grade added");
+}
 
 while (true)
 {

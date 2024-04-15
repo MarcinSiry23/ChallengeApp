@@ -1,7 +1,11 @@
-﻿namespace ChallengeApp
+﻿using static ChallengeApp.EmployeeBase;
+
+namespace ChallengeApp
 {
     public class Supervisor : IEmployee
     {
+        public event GradeAddedDelegate GradeAdded;
+
         //list
         private List<float> grades = new List<float>();
 
