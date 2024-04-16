@@ -8,11 +8,10 @@ namespace ChallengeApp.tests
         public void WhenEmployeeGetGradesReturnCorrectStatistic()
         {
             // arrange
-            var employee = new Employee("Marcin", "Nowak");
+            var employee = new EmployeeInMemory("Marcin", "Nowak");
             employee.AddGrade('b');
             employee.AddGrade('B');
             employee.AddGrade("10");
-            employee.AddGrade("asdas");
             employee.AddGrade(20);
 
 

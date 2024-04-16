@@ -58,9 +58,9 @@
 
         }
 
-        private Employee GetEmployee(string name, string surname)
+        private EmployeeInMemory GetEmployee(string name, string surname)
         {
-            return new Employee(name, surname);
+            return new EmployeeInMemory(name, surname);
         }
     }
 }
