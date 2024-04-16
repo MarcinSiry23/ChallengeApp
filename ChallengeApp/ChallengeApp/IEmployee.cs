@@ -4,7 +4,7 @@ namespace ChallengeApp
 {
     internal interface IEmployee
     {
-        public event GradeAddedDelegate GradeAdded;
+        event GradeAddedDelegate GradeAdded;
         string Name { get; }
         string Surname { get; }
 

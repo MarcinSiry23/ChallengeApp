@@ -5,7 +5,7 @@
         public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
         public abstract event GradeAddedDelegate GradeAdded;
-        public EmployeeBase(string name, string surname) 
+        public EmployeeBase(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;

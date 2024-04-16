@@ -4,7 +4,7 @@
     {
         public override event GradeAddedDelegate GradeAdded;
 
-        private const string fileName = "grades.txt";
+        private const string fileName = "gradess.txt";
         public EmployeeInFile(string name, string surname)
             : base(name, surname)
         {
@@ -17,6 +17,11 @@
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(grade);
+                }
+
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
                 }
             }
             else
@@ -94,7 +99,7 @@
                 using (var reader = File.OpenText($"{fileName}"))
                 {
                     var line = reader.ReadLine();
-                    while(line != null)
+                    while (line != null)
                     {
                         var number = float.Parse(line);
                         grades.Add(number);
@@ -108,39 +113,10 @@
         private Statistics CountStatistics(List<float> grades)
         {
             var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
 
             foreach (var grade in grades)
             {
-                if (grade >= 0)
-                {
-                    statistics.Max = Math.Max(statistics.Max, grade);
-                    statistics.Min = Math.Min(statistics.Min, grade);
-                    statistics.Average += grade;
-                }
-            }
-
-            statistics.Average /= grades.Count;
-
-            switch (statistics.Average)
-            {
-                case var average when average >= 80:
-                    statistics.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    statistics.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    statistics.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    statistics.AverageLetter = 'D';
-                    break;
-                default:
-                    statistics.AverageLetter = 'E';
-                    break;
+                statistics.AddGrade(grade);
             }
 
             return statistics;
